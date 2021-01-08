@@ -22,10 +22,6 @@
     background: transparent;
 }
 
-.restaurant-card > * {
-    margin: 10px;
-}
-
 .restaurant-card {
     display: flex;
     flex-direction: row;
@@ -34,9 +30,13 @@
     padding: 20px;
     margin-bottom: 10px;
     background-color: #36393fca;
-    border-radius: 10px;
+    border-radius: 5px;
 
     color: #fff;
+}
+
+.restaurant-card > * {
+    margin: 10px;
 }
 
 .restaurant-image {
@@ -44,26 +44,68 @@
 }
 
 .restaurant-main {
-    width: 40%;
+    width: 50%;
 }
 
-.restaurant-secondary {
-    width: 40%;
-    text-align: right;
+.crowd-chart {
+    width: 30%;
+}
+
+.restaurant-name {
+    color: hsl(0, 0%, 90%);
+}
+
+.restaurant-info {
+    color: hsl(0, 0%, 70%);
+}
+
+.restaurant-address {
+    color: hsl(0, 0%, 70%);
+}
+
+.restaurant-postal {
+    color: hsl(0, 0%, 70%);
+}
+
+.google-maps-icon {
+    height: 25px;
+    border-radius: 15%;
 }
 
 .google-link {
-    font-weight: 500px;
+    color: hsl(0, 0%, 70%);
+    font-weight: 600;
     text-decoration: none;
-    color: #fff;
+    font-size: 12px;
+
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+
 }
 
 @media screen and (max-width: 576px) {
+    .image-container {
+        height: 4000px;
+        background-image: linear-gradient(0deg, rgba(4, 3, 15, 0.80),  rgba(4, 3, 15, 0.80)), url("../images/sg-food-rotated2.jpg");
+    }
+    
     .data-container {
         flex-direction: column;
     }
 
     .data-card {
         width: 100%;
+    }
+
+    .restaurant-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .restaurant-image, .restaurant-main, .restaurant-secondary {
+        width: 100%;
+        text-align: left;
+        margin: 10px 0px;
     }
 }

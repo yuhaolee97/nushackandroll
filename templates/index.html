@@ -4,10 +4,9 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>The HTML5 Herald</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The HTML5 Herald" />
-    <meta name="author" content="SitePoint" />
+    <title>Meet & Eat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Meet & Eat" />
 
     <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css') }}" />
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css') }}" />
@@ -23,7 +22,7 @@
         </ul>
       </div>
       <div class="top-div search-div">
-        <form class="search-form" action = "/results" method = "post">
+        <form class="search-form" action = "/results" method="POST">
           <h2 class="search-title">Find Food Places!</h2>
           <p class="search-subtitle">
             Enter 1 to 5 addresses and press Search!
@@ -31,18 +30,20 @@
 
           <label class="search-label" for="address-1">Address 1</label>
           <input
+            required
             type="text"
             class="search-input"
             id="address-1"
             name="address-1"
-          >
+            placeholder="Enter the first address"
+          />
           <label class="search-label" for="address-2">Address 2</label>
           <input
             type="text"
             class="search-input"
             id="address-2"
             name="address-2"
-            placeholder="NIL"
+            placeholder="(optional)"
           />
           <label class="search-label" for="address-3">Address 3</label>
           <input
@@ -50,7 +51,7 @@
             class="search-input"
             id="address-3"
             name="address-3"
-            placeholder="NIL"
+            placeholder="(optional)"
           />
           <label class="search-label" for="address-4">Address 4</label>
           <input
@@ -58,7 +59,7 @@
             class="search-input"
             id="address-4"
             name="address-4"
-            placeholder="NIL"
+            placeholder="(optional)"
           />
           <label class="search-label" for="address-5">Address 5</label>
           <input
@@ -66,14 +67,14 @@
             class="search-input"
             id="address-5"
             name="address-5"
-            placeholder="NIL"
+            placeholder="(optional)"
           />
           <button class="form-btn">Search &#10132;</button>
         </form>
         <div class="search-extra">
           <img
             class="search-map"
-            src="./images/sg-map.jpg"
+            src="{{url_for('static',filename='assets/img/sg-map.jpg') }}"
             alt="singapore map"
           />
         </div>
@@ -85,5 +86,59 @@
         <p>some words</p>
       </div>
     </div>
+
+    <script>
+      let autocomplete;
+      function initAutocomplete() {
+        a_options = {
+          // types: ["establishment"],
+          componentRestrictions: { country: ["SG"] },
+          fields: ["place_id", "geometry", "name"],
+        };
+
+        let id_list = [
+          "address-1",
+          "address-2",
+          "address-3",
+          "address-4",
+          "address-5",
+        ];
+
+        id_list.forEach(setup_autocomplete);
+        function setup_autocomplete(id, index) {
+          new google.maps.places.Autocomplete(
+            document.getElementById(id),
+            a_options
+          );
+        }
+
+        // autocomplete = new google.maps.places.Autocomplete(
+        //   document.getElementById("address-1"),
+        //   a_options
+        // );
+
+        // autocomplete = new google.maps.places.Autocomplete(
+        //   document.getElementById("address-2"),
+        //   a_options
+        // );
+
+        // autocomplete = new google.maps.places.Autocomplete(
+        //   document.getElementById("address-3"),
+        //   a_options
+        // );
+
+        // autocomplete = new google.maps.places.Autocomplete(
+        //   document.getElementById("address-4"),
+        //   a_options
+        // );
+
+        // autocomplete = new google.maps.places.Autocomplete(
+        //   document.getElementById("address-5"),
+        //   a_options
+        // );
+      }
+    </script>
+
+   
   </body>
 </html>

@@ -14,7 +14,7 @@ import os
 from dotenv import load_dotenv
 from flask import redirect, url_for
 
-api_key = 'AIzaSyC3FjZU8SGXBVUj5p4mymMcvFcpNr_hyec'
+api_key = ''
 
 #python is great
 

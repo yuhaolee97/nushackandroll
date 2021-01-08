@@ -4,15 +4,9 @@ from sklearn.cluster import KMeans
 import math
 
 
-latlong_df = pd.read_csv("./latlongs.csv")
+latlong_df = pd.read_csv("./latlongfinal.csv")
 
-latlong_df = pd.concat([latlong_df[['Address']], latlong_df['Cusines'], latlong_df['Restaurant'], latlong_df['Coordinates'].str.split(', ', expand=True)], axis=1)
-latlong_df.rename(columns={0: 'Latitude', 1: 'Longitude'}, inplace=True)
-latlong_df.head()
-
-latlong_df.isnull().sum()
-
-features = latlong_df.iloc[:, [3,4]]
+features = latlong_df.iloc[:, [2,3]]
 
 new_features = pd.DataFrame()
 
@@ -29,7 +23,6 @@ latlong_df['Clusters'] = y_means.astype(str)
 pickle.dump(km, open("save.pkl", "wb"))
 
 latlong_df.to_csv("updatedlatlong.csv")
-
 
 # import plotly.graph_objects as go
 # import plotly_express as px

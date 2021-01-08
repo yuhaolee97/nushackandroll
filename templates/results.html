@@ -29,7 +29,7 @@
             src="./images/sg-map.jpg"
             alt="singapore map"
           />
-          <h5 class="data-caption">some Random Captions</h5>
+          <h5 class="data-caption">{{centroid}}</h5>
         </div>
         <div class="data-card">
           <img
@@ -49,33 +49,36 @@
         </div>
       </div>
       <div class="bottom-div restaurant-container">
+        {% if filename %}
+        {% for i in range(length) %}
         <div class="restaurant-card">
           <img
-            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            src="{{ url_for('static',filename=filename[i]) }}"
             alt=""
             class="restaurant-image"
           />
           <div class="restaurant-main">
-            <h3 class="restaurant-name">RK Eating House</h3>
-            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <h3 class="restaurant-name">{{restaurant_lists[i]}}</h3>
+            <h4 class="restaurant-info">{{cusine_lists[i]}}</h4>
             <br />
-            <p class="restaurant-address">45 Serangoon Gardens</p>
-            <p class="restaurant-postal">550321</p>
+            <p class="restaurant-address">{{address_lists[i]}}</p>
+            <!-- <p class="restaurant-postal">550321</p> -->
             <a href="https://www.google.com/maps">
               <span class="google-link">Google Maps&nbsp;&nbsp;</span
               ><img
-                src="./images/google-maps-icon.png"
                 alt=""
                 class="google-maps-icon"
             /></a>
           </div>
           <img
-            src="./images/crowd-chart.png"
+            src="{{url_for('static',filename=crowdlevel_lists[i]) }}"
             alt="crowd chart"
             class="crowd-chart"
           />
         </div>
-        <div class="restaurant-card">
+        {% endfor %}
+        {% endif %}
+        <!-- <div class="restaurant-card">
           <img
             src="https://lh5.googleusercontent.com/p/AF1QipNEWNh9KCrLjyEiX59TDrBWI9RHdqXwxwzHg8RL=w408-h306-k-no"
             alt=""
@@ -125,7 +128,7 @@
             alt="crowd chart"
             class="crowd-chart"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </body>

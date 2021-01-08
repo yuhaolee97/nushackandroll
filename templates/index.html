@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>The HTML5 Herald</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The HTML5 Herald" />
+    <meta name="author" content="SitePoint" />
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css') }}" />
+  </head>
+
+  <body>
+    <div class="image-container">
+      <div class="nav-bar">
+        <a href="/" class="logo-name">Meet & Eat</a>
+        <ul href="/" class="nav-list">
+          <li><a class="nav-item" href="/">Our Data</a></li>
+          <li><a class="nav-item" href="/results.html">Sample Results</a></li>
+        </ul>
+      </div>
+      <div class="top-div search-div">
+        <form class="search-form" method = "post">
+          <h2 class="search-title">Find Food Places!</h2>
+          <p class="search-subtitle">
+            Enter 1 to 5 addresses and press Search!
+          </p>
+
+          <label class="search-label" for="address-1">Address 1</label>
+          <input
+            type="text"
+            class="search-input"
+            id="address-1"
+            name="address-1"
+          >
+          <label class="search-label" for="address-2">Address 2</label>
+          <input
+            type="text"
+            class="search-input"
+            id="address-2"
+            name="address-2"
+            placeholder="NIL"
+          />
+          <label class="search-label" for="address-3">Address 3</label>
+          <input
+            type="text"
+            class="search-input"
+            id="address-3"
+            name="address-3"
+            placeholder="NIL"
+          />
+          <label class="search-label" for="address-4">Address 4</label>
+          <input
+            type="text"
+            class="search-input"
+            id="address-4"
+            name="address-4"
+            placeholder="NIL"
+          />
+          <label class="search-label" for="address-5">Address 5</label>
+          <input
+            type="text"
+            class="search-input"
+            id="address-5"
+            name="address-5"
+            placeholder="NIL"
+          />
+          <button class="form-btn">Search &#10132;</button>
+        </form>
+        <div class="search-extra">
+          <img
+            class="search-map"
+            src="./images/sg-map.jpg"
+            alt="singapore map"
+          />
+        </div>
+      </div>
+      <div class="bottom-div info-div">
+        <p>some words</p>
+        <p>some words</p>
+        <p>some words</p>
+        <p>some words</p>
+      </div>
+    </div>
+  </body>
+</html>

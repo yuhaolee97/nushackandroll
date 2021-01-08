@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 api_key = os.getenv('PROJECT_API_KEY')
 
-
+#python is great
 
 app = Flask(__name__)
 

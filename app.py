@@ -162,41 +162,41 @@ def my_form_post():
         map_titles.append(filtered_df['Google_map_link'][row])
         cusine_lists.append(filtered_df['Cusines'][row])
 
-        url = "https://besttime.app/api/v1/forecasts"
+        # url = "https://besttime.app/api/v1/forecasts"
 
-        params = {
-            'api_key_private': 'pri_db35aee5b0a14d168d2c32a2f2e8891d',
-            'venue_name': filtered_df['Restaurant'][row],
-            'venue_address': filtered_df['Address'][row]
-        }
+        # params = {
+        #     'api_key_private': 'pri_db35aee5b0a14d168d2c32a2f2e8891d',
+        #     'venue_name': filtered_df['Restaurant'][row],
+        #     'venue_address': filtered_df['Address'][row]
+        # }
 
-        response = requests.request("POST", url, params=params)
+        # response = requests.request("POST", url, params=params)
 
-        data = json.loads(response.text)
+        # data = json.loads(response.text)
 
 
-        hours = ["6AM","7AM","8AM", "9AM","10AM","11AM", "12PM","1PM","2PM", "3PM","4PM","5PM", "6PM","7PM","8PM","9PM","10PM","11PM", "12AM"]
-        percent_fullness = data['analysis'][5]['day_raw'][:-5]
-        print(percent_fullness)
-        plotdata = [go.Bar(x = hours, y = percent_fullness)]
-        fig = go.Figure(data=plotdata)
-        fig.update_yaxes(range=[0, 100], color='lightgrey', showgrid=False)
-        fig.update_layout(
-            autosize=False,
-            width=800,
-            height=400,
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)'
-        )
-        fig.update_layout(
-            xaxis = dict(
-                tickmode = 'array',
-                tickvals = ["9AM", "12PM", "3PM","6PM","9PM", "12AM"], showgrid=False, color='lightgrey'
-            )
-        )
-        # fig.show()
-        fig.write_image("./static/images/crowdlevel" + str(counter) + ".png")
-        crowdlevel_lists.append('images/crowdlevel' + str(counter) + ".png")
+        # hours = ["6AM","7AM","8AM", "9AM","10AM","11AM", "12PM","1PM","2PM", "3PM","4PM","5PM", "6PM","7PM","8PM","9PM","10PM","11PM", "12AM"]
+        # percent_fullness = data['analysis'][5]['day_raw'][:-5]
+        # print(percent_fullness)
+        # plotdata = [go.Bar(x = hours, y = percent_fullness)]
+        # fig = go.Figure(data=plotdata)
+        # fig.update_yaxes(range=[0, 100], color='lightgrey', showgrid=False)
+        # fig.update_layout(
+        #     autosize=False,
+        #     width=800,
+        #     height=400,
+        #     paper_bgcolor='rgba(0,0,0,0)',
+        #     plot_bgcolor='rgba(0,0,0,0)'
+        # )
+        # fig.update_layout(
+        #     xaxis = dict(
+        #         tickmode = 'array',
+        #         tickvals = ["9AM", "12PM", "3PM","6PM","9PM", "12AM"], showgrid=False, color='lightgrey'
+        #     )
+        # )
+        # # fig.show()
+        # fig.write_image("./static/images/crowdlevel" + str(counter) + ".png")
+        # crowdlevel_lists.append('images/crowdlevel' + str(counter) + ".png")
         counter += 1
 
         if (counter == 2):

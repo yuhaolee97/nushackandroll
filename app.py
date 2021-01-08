@@ -12,8 +12,9 @@ import collections
 import requests, json
 import os
 from dotenv import load_dotenv
+from flask import redirect, url_for
 
-api_key = os.getenv('PROJECT_API_KEY')
+api_key = 'AIzaSyC3FjZU8SGXBVUj5p4mymMcvFcpNr_hyec'
 
 #python is great
 
@@ -27,7 +28,7 @@ def my_form():
     return render_template('index.html')
  
 
-@app.route('/', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def my_form_post():
     latlong_df = pd.read_csv("./updatedlatlong.csv")
 
@@ -122,6 +123,8 @@ def my_form_post():
             reference = Coordinates(key.latitude, key.longitude)
 
     print(cluster_dictionary[reference])
+        
+    return render_template("results.html")
 
     # filtered_df = latlong_df.loc[latlong_df['Clusters'] == centroid[0]]
     # print(filtered_df.head())
@@ -145,7 +148,7 @@ def my_form_post():
     # lists.append(b)
     # lists.append(c)
     # lists.append(d)
-    return lists[0]
+    # return lists[0]
 
     # request_address = '%(text1)s , IN' % {'text1':text1}
 

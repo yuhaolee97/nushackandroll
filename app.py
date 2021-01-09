@@ -183,7 +183,7 @@ def my_form_post():
         #     crowdlevel_lists.append('images/crowdlevel' + str(counter) + ".png")
         intensity = 4
         sorted_crowd_dictionary[row] = intensity
-        if (counter == 6): 
+        if (counter == 3): 
             break
         crowdlevelfiles.append('images/graph' + str(counter) + ".png")
         counter += 1
@@ -216,7 +216,7 @@ def my_form_post():
         map_titles.append(filtered_df['Google_map_link'][row])
         cusine_lists.append(filtered_df['Cusines'][row])
 
-        if (counter == 5):
+        if (counter == 3):
             break
 
         counter += 1

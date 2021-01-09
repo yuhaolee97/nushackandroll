@@ -2,14 +2,19 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: whitney, arial, sans-serif;
-  font-family: Roboto, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
+  /* font-family: whitney, arial, sans-serif; */
+  font-family: Cantarell, -apple-system, "Helvetica", Arial;
+}
+
+.transparent {
+    background: transparent;
 }
 
 .image-container {
     width: 100%;
-    height: 2000px;
-    background-image: linear-gradient(0deg, rgba(4, 3, 15, 0.85),  rgba(4, 3, 15, 0.85)), url('/static/images/sg-food-rotated2.jpg');
+    height: 100vh;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 8%, rgba(0, 0, 0, 0.2) 12%, rgba(0, 0, 0, 0.0) 100%), 
+    url("/static/images/sg-food-rotated2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -22,7 +27,7 @@
     width: 95%;
     max-width: 1000px;
     min-width: 300px;
-    height: 70px;
+    height: 80px;
 
     display: flex;
     justify-content: space-between;
@@ -30,13 +35,13 @@
 }
 
 .logo-name {
-    color: #ffffff;
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
     padding: 10px;
     line-height: 100%;
-    font-size: 24px;
-
+    font-size: 32px;
+    text-align: center;
 }
 
 .nav-list {
@@ -46,24 +51,24 @@
 }
 
 .nav-item {
-    color: #ffffff;
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
     line-height: 100%;
     padding: 15px;
+    font-size: 18px;
 }
 
-
 .top-div {
-    background-color:#36393fef;
+    background-color:#26282cfa;
     color: #808388;
 
-    margin: 70px auto 40px auto;
+    margin: 70px auto 30px auto;
     width: 95%;
     max-width: 1000px;
     /* min-width: 300px; */
     /* max-height: 470px; */
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 40px;
 
     display: flex;
@@ -78,34 +83,30 @@
     font-weight: 600px;
     color: white;
     width: 100%;
-
-    font-family: Roboto, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
-
 }
 
 .search-subtitle {
     width: 100%;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     color: #9097a5;
     text-align: center;
     margin: 5px 0px 15px 0px;
 }
 
-
 .search-form {
     width: 60%;
 }
 
 .search-extra {
-    width: 30%;
+    width: 35%;
 }
 
 .search-label {
     text-transform: uppercase;
     color: rgb(142, 146, 151);
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
 
     text-align: center;
     width: 15%;
@@ -140,6 +141,15 @@
     outline: none;
 }
 
+#cuisine-input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #635959;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+
 .form-btn {
     background-color: #7289da;
     border: none;
@@ -160,8 +170,10 @@
     background-color: #677bc4;
 }
 
-.search-map {
+.cluster-map {
     width: 100%;
+    border: 5px solid #677bc4;
+    border-radius: 15px;
 }
 
 .bottom-div {
@@ -169,16 +181,26 @@
     width: 95%;
     max-width: 1000px;
     /* min-width: 300px; */
-    height: 600px;
+    /* height: 700px; */
 
     display: flex;
     flex-direction: column;
 
-    background-color: #36393fca;
+    background-color: #313336f5;
     border-radius: 10px;
     padding: 40px;
 }
 
+.intro-text {
+    font-size: 18px;
+    color: rgb(142, 146, 151);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.blue-text {
+    color: #7289da;
+}
 
 @media screen and (max-width: 1024px) {
     .search-form {

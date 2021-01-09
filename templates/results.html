@@ -6,8 +6,7 @@
 
     <title>Meet & Eat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="The HTML5 Herald" />
-    <meta name="author" content="SitePoint" />
+    <meta name="description" content="Meet & Eat" />
 
     <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css') }} " />
     <link rel="stylesheet" href="{{url_for('static',filename='css/results.css') }}" />
@@ -18,34 +17,39 @@
       <div class="nav-bar">
         <a href="/" class="logo-name">Meet & Eat</a>
         <ul href="/" class="nav-list">
-          <li><a class="nav-item" href="/">Our Data</a></li>
-          <li><a class="nav-item" href="/results.html">Sample Results</a></li>
+          <li><a class="nav-item" href="/">Home</a></li>
+          <li><a class="nav-item" href="/">Search</a></li>
         </ul>
       </div>
       <div class="top-div data-container">
         <div class="data-card">
-          <img
-            class="data-image"
-            src="{{url_for('static',filename='images/sg-map.jpg') }}"
-            alt="singapore map"
-          />
-          <h5 class="data-caption">{{centroid}}</h5>
+          <div id="data-time">
+            <h2 class="data-time-title">{{length}}&nbsp;&nbsp;</h2>
+            <h3 class="data-time-subtitle">
+              suitable<br />
+              restaurants<br />
+              found
+            </h3>
+          </div>
         </div>
         <div class="data-card">
           <img
             class="data-image"
-            src="{{url_for('static',filename='images/sg-map.jpg') }}"
+            src="/static/images/graphAVG.png"
             alt="singapore map"
           />
-          <h5 class="data-caption">some Random Captions</h5>
+          <p class="time-legend">6am - 12am crowd levels</p>
+          <h5 class="data-caption">Average Crowd Level in this Area</h5>
         </div>
         <div class="data-card">
-          <img
-            class="data-image"
-            src="{{url_for('static',filename='images/sg-map.jpg') }}"
-            alt="singapore map"
-          />
-          <h5 class="data-caption">some Random Captions</h5>
+          <div id="data-time">
+            <h2 class="data-time-title">~45 &nbsp;&nbsp;</h2>
+            <h3 class="data-time-subtitle">
+              minutes <br />
+              travel time<br />
+              per person
+            </h3>
+          </div>
         </div>
       </div>
       <div class="bottom-div restaurant-container">
@@ -62,73 +66,288 @@
             <h4 class="restaurant-info">{{cusine_lists[i]}}</h4>
             <br />
             <p class="restaurant-address">{{address_lists[i]}}</p>
-            <!-- <p class="restaurant-postal">550321</p> -->
             <a href="https://www.google.com/maps">
-              <span class="google-link">Google Maps&nbsp;&nbsp;</span
-              ><img
-                alt=""
-                class="google-maps-icon"
-            /></a>
-          </div>
-          <img
-            src="{{url_for('static',filename=crowdlevel_lists[i]) }}"
-            alt="crowd chart"
-            class="crowd-chart"
-          />
-        </div>
-        {% endfor %}
-        {% endif %}
-        <!-- <div class="restaurant-card">
-          <img
-            src="https://lh5.googleusercontent.com/p/AF1QipNEWNh9KCrLjyEiX59TDrBWI9RHdqXwxwzHg8RL=w408-h306-k-no"
-            alt=""
-            class="restaurant-image"
-          />
-          <div class="restaurant-main">
-            <h3 class="restaurant-name">El Cubanos</h3>
-            <h4 class="restaurant-info">Cuban | Rich | Big-sized</h4>
-            <br />
-            <p class="restaurant-address">29 Prinsep Street</p>
-            <p class="restaurant-postal">472391</p>
-            <a href="https://www.google.com/maps">
-              <span class="google-link">See on Google Maps&nbsp;&nbsp;</span
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
               ><img
                 src="./images/google-maps-icon.png"
                 alt=""
                 class="google-maps-icon"
             /></a>
           </div>
-          <img
-            src="./images/crowd-chart.png"
-            alt="crowd chart"
-            class="crowd-chart"
-          />
+          <div class="crowd-div">
+            <img
+              src="{{url_for('static',filename=crowdlevelfiles[i]) }}"
+              
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
         </div>
-        <div class="restaurant-card">
+        {% endfor %}
+          {% endif %}
+        <!-- <div class="restaurant-card">
           <img
-            src="https://lh5.googleusercontent.com/p/AF1QipMrru7mK5WqAMeXL-lW76cYOukBY6CHnWcZ5jY8=w408-h270-k-no"
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
             alt=""
             class="restaurant-image"
           />
           <div class="restaurant-main">
-            <h3 class="restaurant-name">Ikan Bilis Yong Tau Foo</h3>
-            <h4 class="restaurant-info">Chinese | Authentic | Cheap</h4>
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
             <br />
-            <p class="restaurant-address">95 Smith Street</p>
-            <p class="restaurant-postal">672491</p>
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
             <a href="https://www.google.com/maps">
-              <img
-                src="./images/google-maps-long.jpg"
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
                 alt=""
                 class="google-maps-icon"
             /></a>
           </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph2.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
           <img
-            src="./images/crowd-chart.png"
-            alt="crowd chart"
-            class="crowd-chart"
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
           />
-        </div> -->
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph3.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph4.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph5.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph6.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph7.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph8.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph9.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div>
+        </div>
+        <div class="restaurant-card">
+          <img
+            src="https://lh5.googleusercontent.com/p/AF1QipMEOzSkXeMiJ7CEPM4T2WdV53Z1K0vae8MWe7s=w408-h306-k-no"
+            alt=""
+            class="restaurant-image"
+          />
+          <div class="restaurant-main">
+            <h3 class="restaurant-name">RK Eating House</h3>
+            <h4 class="restaurant-info">Indian | Mixed | Cheap</h4>
+            <br />
+            <p class="restaurant-address">45 Serangoon Gardens</p>
+            <p class="restaurant-postal">550321</p>
+            <a href="https://www.google.com/maps">
+              <span class="google-link">View on Google Maps&nbsp;&nbsp;</span
+              ><img
+                src="./images/google-maps-icon.png"
+                alt=""
+                class="google-maps-icon"
+            /></a>
+          </div>
+          <div class="crowd-div">
+            <img
+              src="./images/graph10.png"
+              alt="crowd chart"
+              class="crowd-chart"
+            />
+          <p class="time-legend">6am - 12am crowd levels displayed</p>
+          </div> -->
+        <!-- </div> -->
+        
       </div>
     </div>
   </body>

@@ -1,25 +1,7 @@
-.image-container {
-    height: 4000px;
-}
-    
-    .data-container {
+.data-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.time-legend {
-    color: hsl(0, 0%, 70%);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 16px;
-
-    display: inline-block;
-    line-height: 25px;
-    vertical-align: top;
-
-    padding-left: 30px;
+    justify-content: space-between;
 }
 
 .data-card {
@@ -33,7 +15,6 @@
 .data-caption {
     width: 100%;
     margin-bottom: 10px;
-    font-size: 20px;
 }
 
 .restaurant-container {
@@ -48,8 +29,8 @@
     
     padding: 20px;
     margin-bottom: 10px;
-    background-color: #36393ff6;
-    border-radius: 10px;
+    background-color: #36393fca;
+    border-radius: 5px;
 
     color: #fff;
 }
@@ -67,7 +48,7 @@
 }
 
 .crowd-chart {
-    width: 100%;
+    width: 30%;
 }
 
 .restaurant-name {
@@ -100,65 +81,21 @@
     display: inline-block;
     line-height: 25px;
     vertical-align: top;
-}
 
-#data-time {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* border: 3px solid white; */
-    /* border-radius: 10px; */
-    padding-top: 15%;
-    padding-bottom: 15%;
-}
-
-.data-time-title {
-    width: 100%;
-    text-align: center;
-    font-size: 70px;
-}
-
-.data-time-subtitle {
-    width: 100%;
-    text-align: center;
-    font-size: 33px;
-}
-
-.crowd-div {
-    display: flex;
-    flex-direction: column;
-}
-
-@media screen and (max-width: 768px) and (min-width: 577px) {
-    .data-time-title {
-        font-size: 50px;
-    }
-
-    .data-time-subtitle {
-        font-size: 25px;
-    }
-
-    .data-caption { 
-        font-size: 20px;
-    }
 }
 
 @media screen and (max-width: 576px) {
     .image-container {
-        height: 9999px;
+        height: 4000px;
+        background-image: linear-gradient(0deg, rgba(4, 3, 15, 0.80),  rgba(4, 3, 15, 0.80)), url("../images/sg-food-rotated2.jpg");
     }
     
     .data-container {
         flex-direction: column;
     }
 
-    #data-time {
-        padding: 0px;
-    }
-    
     .data-card {
         width: 100%;
-        margin: 20px 0px;
     }
 
     .restaurant-card {
@@ -166,13 +103,9 @@
         padding: 20px;
     }
 
-    .restaurant-image, .restaurant-main, .crowd-chart {
+    .restaurant-image, .restaurant-main, .restaurant-secondary {
         width: 100%;
         text-align: left;
         margin: 10px 0px;
-    }
-
-    .restaurant-container, .data-container {
-        width: 93%;
     }
 }

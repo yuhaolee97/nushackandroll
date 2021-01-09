@@ -139,54 +139,58 @@ def my_form_post():
 
     url = "https://besttime.app/api/v1/forecasts"
 
-    counter = 0
+    counter = 1
 
     sorted_crowd_dictionary = {}
     top_10_dictionaries = {}
-    # for row, col in filtered_df.iterrows(): #to see which crowd level is the lowest
-    #     params = {
-    #         'api_key_private': 'pri_4b5d2bc1abb749d49af70ad45ab9274a',
-    #         'venue_name': filtered_df['Restaurant'][row],
-    #         'venue_address': filtered_df['Address'][row]
-    #     }
+    crowdlevelfiles = []
+    for row, col in filtered_df.iterrows(): #to see which crowd level is the lowest
+        # params = {
+        #     'api_key_private': 'pri_4b5d2bc1abb749d49af70ad45ab9274a',
+        #     'venue_name': filtered_df['Restaurant'][row],
+        #     'venue_address': filtered_df['Address'][row]
+        # }
 
-    #     response = requests.request("POST", url, params=params)
+        # response = requests.request("POST", url, params=params)
 
-    #     data = json.loads(response.text)
+        # data = json.loads(response.text)
 
 
-    #     hours = ["6AM","7AM","8AM", "9AM","10AM","11AM", "12PM","1PM","2PM", "3PM","4PM","5PM", "6PM","7PM","8PM","9PM","10PM","11PM", "12AM"]
-    #     if (data):
-    #         print(data['analysis'])
-    #         percent_fullness = data['analysis'][5]['day_raw'][:-5]
-    #         intensity = data['analysis'][5]['day_info']['day_rank_max']
-    #         intensity = 8 - intensity
-    #         plotdata = [go.Bar(x = hours, y = percent_fullness)]
-    #         fig = go.Figure(data=plotdata)
-    #         fig.update_yaxes(range=[0, 100], color='lightgrey', showgrid=False)
-    #         fig.update_layout(
-    #             autosize=False,
-    #             width=800,
-    #             height=400,
-    #             paper_bgcolor='rgba(0,0,0,0)',
-    #             plot_bgcolor='rgba(0,0,0,0)'
-    #         )
-    #         fig.update_layout(
-    #             xaxis = dict(
-    #                 tickmode = 'array',
-    #                 tickvals = ["9AM", "12PM", "3PM","6PM","9PM", "12AM"], showgrid=False, color='lightgrey'
-    #             )
-    #         )
-    #         # fig.show()
-    #         fig.write_image("./static/images/crowdlevel" + str(counter) + ".png")
-    #         crowdlevel_lists.append('images/crowdlevel' + str(counter) + ".png")
-    #         sorted_crowd_dictionary[row] = intensity
-    #     if (counter == 5): 
-    #         break
-    #     counter += 1
+        # hours = ["6AM","7AM","8AM", "9AM","10AM","11AM", "12PM","1PM","2PM", "3PM","4PM","5PM", "6PM","7PM","8PM","9PM","10PM","11PM", "12AM"]
+        # if (data):
+        #     print(data['analysis'])
+        #     percent_fullness = data['analysis'][5]['day_raw'][:-5]
+        #     intensity = data['analysis'][5]['day_info']['day_rank_max']
+        #     intensity = 8 - intensity
+        #     plotdata = [go.Bar(x = hours, y = percent_fullness)]
+        #     fig = go.Figure(data=plotdata)
+        #     fig.update_yaxes(range=[0, 100], color='lightgrey', showgrid=False)
+        #     fig.update_layout(
+        #         autosize=False,
+        #         width=800,
+        #         height=400,
+        #         paper_bgcolor='rgba(0,0,0,0)',
+        #         plot_bgcolor='rgba(0,0,0,0)'
+        #     )
+        #     fig.update_layout(
+        #         xaxis = dict(
+        #             tickmode = 'array',
+        #             tickvals = ["9AM", "12PM", "3PM","6PM","9PM", "12AM"], showgrid=False, color='lightgrey'
+        #         )
+        #     )
+        #     # fig.show()
+        #     fig.write_image("./static/images/crowdlevel" + str(counter) + ".png")
+        #     crowdlevel_lists.append('images/crowdlevel' + str(counter) + ".png")
+        intensity = 4
+        sorted_crowd_dictionary[row] = intensity
+        if (counter == 6): 
+            break
+        crowdlevelfiles.append('images/graph' + str(counter) + ".png")
+        counter += 1
 
-    # top_10_dictionaries = collections.Counter(sorted_crowd_dictionary).most_common(counter)
-    # top_10_dictionaries = dict(top_10_dictionaries)
+
+    top_10_dictionaries = collections.Counter(sorted_crowd_dictionary).most_common(counter)
+    top_10_dictionaries = dict(top_10_dictionaries)
 
     counter = 0
     for row in top_10_dictionaries:
@@ -212,15 +216,16 @@ def my_form_post():
         map_titles.append(filtered_df['Google_map_link'][row])
         cusine_lists.append(filtered_df['Cusines'][row])
 
+        if (counter == 5):
+            break
+
         counter += 1
 
-        if (counter == 10):
-            break
     length = counter
 
         
     return render_template("results.html", centroid = centroid, filename = filename_lists, restaurant_lists = restaurant_lists, address_lists = address_lists, map_titles = map_titles, 
-                        cusine_lists = cusine_lists, length = length, crowdlevel_lists = crowdlevel_lists)
+                        cusine_lists = cusine_lists, length = length, crowdlevel_lists = crowdlevel_lists, crowdlevelfiles = crowdlevelfiles)
 
 
 

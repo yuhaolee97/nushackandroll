@@ -1,0 +1,252 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    /* font-family: whitney, arial, sans-serif; */
+    font-family: Cantarell, -apple-system, "Helvetica", Arial;
+  }
+  
+  .transparent {
+      background: transparent;
+  }
+  
+  .image-container {
+      width: 100%;
+      height: 100vh;
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 8%, rgba(0, 0, 0, 0.2) 12%, rgba(0, 0, 0, 0.0) 100%), 
+      url("{{url_for('static',filename='images/sg-food-rotated2.jpg')}}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0,0,0, 0.3);
+  }
+  
+  .nav-bar {
+      margin: 0px auto;
+      width: 95%;
+      max-width: 1000px;
+      min-width: 300px;
+      height: 80px;
+  
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+  }
+  
+  .logo-name {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px;
+      line-height: 100%;
+      font-size: 32px;
+      text-align: center;
+  }
+  
+  .nav-list {
+      padding: 10px;
+      display: flex;
+      list-style: none;
+  }
+  
+  .nav-item {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      line-height: 100%;
+      padding: 15px;
+      font-size: 18px;
+  }
+  
+  .top-div {
+      background-color:#26282cfa;
+      color: #808388;
+  
+      margin: 70px auto 30px auto;
+      width: 95%;
+      max-width: 1000px;
+      /* min-width: 300px; */
+      /* max-height: 470px; */
+      border-radius: 15px;
+      padding: 40px;
+  
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  
+      box-shadow: 0px 2px 6px 0px hsla(0, 0%, 0%, 0.2);
+  }
+  
+  .search-title {
+      text-align: center;
+      font-weight: 600px;
+      color: white;
+      width: 100%;
+  }
+  
+  .search-subtitle {
+      width: 100%;
+      font-size: 17px;
+      font-weight: bold;
+      color: #9097a5;
+      text-align: center;
+      margin: 5px 0px 15px 0px;
+  }
+  
+  .search-form {
+      width: 60%;
+  }
+  
+  .search-extra {
+      width: 35%;
+  }
+  
+  .search-label {
+      text-transform: uppercase;
+      color: rgb(142, 146, 151);
+      font-weight: bold;
+      font-size: 12px;
+  
+      text-align: center;
+      width: 15%;
+      display: inline-block;
+  }
+  
+  .search-input {
+      border-color: rgb(4, 4, 5);
+      border-radius: 3px;
+      border-width: 1px;
+      background-color: #313339;
+      color: rgb(220, 221, 222);
+  
+      margin-top: 6px;
+      margin-bottom: 15px;
+      padding: 10px 10px;
+      font-size: 16px;
+      
+      /* background-color: transparent; */
+      transition: border-color .3s ease-in-out;
+      border-style: solid;
+      
+      width: 84%;
+      display: inline-block;
+      margin-top: 8px;
+      margin-bottom: 8px;
+  }
+  
+  .search-input:focus {
+      opacity: 1;
+      border-color: #7289da;
+      outline: none;
+  }
+  
+  #cuisine-input {
+      background: none;
+      border: none;
+      border-bottom: 1px solid #635959;
+      padding-top: 0px;
+      padding-bottom: 5px;
+  }
+  
+  
+  .form-btn {
+      background-color: #7289da;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 20px;
+      
+      display:block;
+      width: 40%;
+      margin-left: auto;
+  }
+  
+  .form-btn:hover {
+      background-color: #677bc4;
+  }
+  
+  .cluster-map {
+      width: 100%;
+      border: 5px solid #677bc4;
+      border-radius: 15px;
+  }
+  
+  .bottom-div {
+      margin: 0px auto;
+      width: 95%;
+      max-width: 1000px;
+      /* min-width: 300px; */
+      /* height: 700px; */
+  
+      display: flex;
+      flex-direction: column;
+  
+      background-color: #313336f5;
+      border-radius: 10px;
+      padding: 40px;
+  }
+  
+  .intro-text {
+      font-size: 18px;
+      color: rgb(142, 146, 151);
+      margin-top: 10px;
+      margin-bottom: 20px;
+  }
+  
+  .blue-text {
+      color: #7289da;
+  }
+  
+  @media screen and (max-width: 1024px) {
+      .search-form {
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .search-input {
+          width: 100%;
+      }
+  
+      .search-label {
+          width: 100%;
+          text-align: left;
+      }
+  }
+  
+  @media screen and (max-width: 768px) {
+      .top-div {
+          margin-top: 20px;
+      }
+      
+      .search-subtitle {
+          font-size: 20px;
+      }
+  
+      .search-subtitle {
+          font-size: 14px;
+      }
+      
+      .search-extra {
+          display: none;
+      }
+  
+      .search-form {
+          width: 100%;
+      }
+  }
+  
+  @media screen and (max-width: 576px) {
+      .nav-list {
+          display: none;
+      }
+  
+      .top-div {
+          padding: 25px;
+      }
+  }
+  

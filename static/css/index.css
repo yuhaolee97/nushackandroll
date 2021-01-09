@@ -1,1 +1,22 @@
 
+/* .image-container {
+    height: 1500px;
+} */
+
+.info-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-text {
+    width: 50%;
+}
+
+.info-image {
+    width: 50%;
+}

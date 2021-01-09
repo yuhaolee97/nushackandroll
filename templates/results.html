@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>The HTML5 Herald</title>
+    <title>Meet & Eat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="The HTML5 Herald" />
     <meta name="author" content="SitePoint" />
@@ -26,7 +26,7 @@
         <div class="data-card">
           <img
             class="data-image"
-            src="./images/sg-map.jpg"
+            src="{{url_for('static',filename='images/sg-map.jpg') }}"
             alt="singapore map"
           />
           <h5 class="data-caption">{{centroid}}</h5>
@@ -34,7 +34,7 @@
         <div class="data-card">
           <img
             class="data-image"
-            src="./images/sg-map.jpg"
+            src="{{url_for('static',filename='images/sg-map.jpg') }}"
             alt="singapore map"
           />
           <h5 class="data-caption">some Random Captions</h5>
@@ -42,7 +42,7 @@
         <div class="data-card">
           <img
             class="data-image"
-            src="./images/sg-map.jpg"
+            src="{{url_for('static',filename='images/sg-map.jpg') }}"
             alt="singapore map"
           />
           <h5 class="data-caption">some Random Captions</h5>

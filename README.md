@@ -3,6 +3,8 @@ Meet & Eat
 
 NUS Hack and Roll 2021 Submission: Done collaboratively with Aw Khai Loong and Richard Ng.
 
+Devpost Link: https://devpost.com/software/team-unfv54
+
 ## Motivation
 We have on many occasions faced difficulty in settling on a fair location for a group meetup given that we reside in different parts of Singapore. This often leads to some members of the group having travel times much longer than necessary. In the context of fighting COVID-19, there is also newfound importance in practicing social distancing when eating out. We were unable to find any web service that takes in multiple starting addresses and returns the optimal restaurants based on travel time and crowd avoidance, so we decided to create one!
 
